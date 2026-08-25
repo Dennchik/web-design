@@ -11,9 +11,13 @@ section#contacts.contact
                button.button.button--accent Оставить заявку
             form.contact__form.form
                .form__row
-                  input.form__input(type="text", placeholder="Ваше имя")
-                  input.form__input(type="tel", placeholder="Телефон")
-               input.form__input(type="email", placeholder="E-mail")
-               textarea.form__textarea(placeholder="Расскажите о проекте")
+                  label(for="form-name")
+                     input.form__input(type="text", placeholder="Ваше имя", id="form-name" )
+                  label(for="form-phone")
+                     input.form__input(type="tel", placeholder="Телефон", id="form-phone")
+               label(for="mail")
+                  input.form__input(type="email", placeholder="E-mail" id="mail")
+               label(for="message")
+                  textarea.form__textarea(placeholder="Расскажите о проекте", id="message")
                button.button.button--primary.form__button(type="submit") Отправить заявку
                span.form__note Ответим в течение дня

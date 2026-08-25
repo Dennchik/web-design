@@ -2,7 +2,7 @@ header.header
    .header__container.container
       a.header__logo.logo(href="#")
          span.logo__text GUSLI MEDIA
-      nav.header__nav.nav
+      nav.header__nav.nav(data-da="bp-1" data-da-position="0" data-da-resolution="620")
          ul.nav__list
             li.nav__item
                a.nav__link.anchor-link(href="#services") Услуги
@@ -12,4 +12,6 @@ header.header
                a.nav__link.anchor-link(href="#pricing") Пакеты
             li.nav__item
                a.nav__link.anchor-link(href="#contacts") Контакты
-      button.header__btn.button.button--primary Оставить заявку
+      .header__burger-button
+         include @/pug/assets/burger-button
+      button.header__button.button.button--primary Оставить заявку

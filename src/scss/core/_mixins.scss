@@ -1,5 +1,4 @@
 /* stylelint-disable at-rule-descriptor-value-no-unknown */
-
 @use 'variables' as *;
 @use 'variables-icon' as *;
 
@@ -139,11 +138,6 @@
       @content;
    }
 }
-@mixin max-490 {
-   @media screen and (width < 490px) {
-      @content;
-   }
-}
 @mixin screen-425 {
    @media screen and (width < 425px) {
       @content;
@@ -155,7 +149,7 @@
    }
 }
 @mixin screen-320 {
-   @media screen and (width < 320px) {
+   @media screen and (width <= 320px) {
       @content;
    }
 }
@@ -203,6 +197,11 @@
 }
 @mixin min-690 {
    @media (width > 690px) {
+      @content;
+   }
+}
+@mixin min-620 {
+   @media (width > 620px) {
       @content;
    }
 }

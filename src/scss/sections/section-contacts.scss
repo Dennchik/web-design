@@ -1,8 +1,13 @@
 //* section-contacts
 @use '../core/variables' as *;
+@use '../core/mixins' as *;
 
 .contact {
    padding-block: 6rem;
+
+   @include screen-490 {
+      padding: 3rem 0;
+   }
 
    // .contact__box
    &__box {
@@ -10,11 +15,14 @@
       background-color: #0b132a;
       padding: 6rem;
       color: $color-white;
-      //      box-shadow: $box-shadow;
       border-radius: 2rem;
       box-shadow: 0 0 7px #000;
 
       align-items: center;
+
+      @include screen-490 {
+         padding: 4rem 3rem;
+      }
    }
 
    // .contact__box-image
@@ -41,7 +49,11 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       z-index: 2;
-      gap: 4rem;
+      gap: 3rem;
+
+      @include screen-768 {
+         grid-template-columns: 1fr;
+      }
    }
 
    // .contact__title
@@ -49,6 +61,14 @@
       font-size: 36px;
       line-height: 1.2;
       margin-bottom: 16px;
+
+      @include minmax-320-1920 {
+         font-size: calc(22px + (36 - 22) * ((100vw - 320px) / (1920 - 320)));
+      }
+
+      @include screen-320 {
+         font-size: 22px;
+      }
    }
 
    // .contact__text
@@ -68,6 +88,10 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
+
+      @include screen-620 {
+         grid-template-columns: 1fr;
+      }
    }
 
    // .form__input, .form__textarea
@@ -96,8 +120,8 @@
 
    // .form__note
    &__note {
-      font-size: 12px;
-      color: #a0aec0;
+      font-size: 14px;
+      color: $color-white;
       text-align: center;
    }
 }

@@ -1,8 +1,14 @@
 //* Cases
 @use '../core/variables' as *;
+@use '../core/mixins' as *;
+@use 'sass:color';
 
 .cases {
    padding: 6rem 0;
+
+   @include screen-490 {
+      padding: 4rem 0;
+   }
 
    // .case__header
    &__header {
@@ -10,6 +16,12 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 4rem;
+      gap: 1rem;
+
+      @include screen-425 {
+         flex-direction: column;
+         align-items: stretch;
+      }
 
       .section-title {
          margin-bottom: 0;
@@ -28,6 +40,10 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 2.4rem;
+
+      @include screen-992 {
+         grid-template-columns: 1fr;
+      }
    }
 }
 
@@ -68,5 +84,19 @@
    &__tags {
       display: flex;
       gap: 0.8rem;
+   }
+
+   // .case-card__tag
+   &__tag {
+      background-color: $color-bg-light;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 12px;
+      color: $color-text-light;
+
+      &.tag--accent {
+         background-color: color.scale($color-primary, $lightness: 45%);
+         color: $color-text-light;
+      }
    }
 }

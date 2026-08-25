@@ -7,6 +7,10 @@
 @use 'core/reset';
 @use 'core/mixins' as *;
 
+//todo - Assets
+@use 'assets/burger-button';
+@use 'assets/mobile-menu';
+
 //todo - Variables
 @use 'core/variables' as *;
 
@@ -24,108 +28,75 @@
 @use 'sections/section-contacts';
 
 //* ---------------------------------------------------------
-$font-family:
-   'Inter',
-   -apple-system,
-   BlinkMacSystemFont,
-   sans-serif;
+.wrapper {
+   display: flex;
+   flex-direction: column;
 
-.container {
-   max-width: 1440px;
+   height: 100%;
+   min-height: 100vh;
    margin: 0 auto;
-   padding: 0 20px;
 }
 
-.section-title {
-   font-size: 32px;
-   font-weight: 700;
-   margin-bottom: 40px;
-}
+[class*='container'] {
+   box-sizing: border-box;
+   width: 100%;
+   max-width: $maxWidthContainer;
+   margin: 0 auto;
+   padding: 0 2rem;
 
-// Buttons
-.btn {
+   @include screen-490 {
+      padding: 0 10px;
+   }
+}
+[class*='icon-'] {
+   pointer-events: none;
    display: inline-flex;
    align-items: center;
    justify-content: center;
-   padding: 12px 24px;
-   border-radius: 8px;
-   font-size: 15px;
-   font-weight: 600;
-   border: none;
-   cursor: pointer;
-   transition: all 0.2s ease;
+}
 
-   &--primary {
-      background-color: $color-primary;
-      color: $color-white;
+[class*=' _img'] {
+   display: block;
+   width: auto;
+   height: auto;
 
-      &:hover {
-         background-color: $color-primary-hover;
-      }
-   }
-
-   &--secondary {
-      background-color: transparent;
-      color: $color-text;
-      border: 1px solid $color-border;
-
-      &:hover {
-         background-color: $color-bg-light;
-      }
-   }
-
-   &--accent {
-      background-color: $color-accent;
-      color: $color-white;
-
-      &:hover {
-         background-color: color.scale($color-accent, $lightness: -10%);
-      }
+   img {
+      width: 100%;
+      height: 100%;
+      vertical-align: middle;
+      object-fit: contain;
    }
 }
 
-// Header
+[class*='_ibg'] {
+   position: absolute;
+   top: 0;
+   left: 0;
 
-// Services
+   width: 100%;
+   height: 100vh;
 
-.tag {
-   background-color: $color-bg-light;
-   padding: 4px 12px;
-   border-radius: 12px;
-   font-size: 12px;
-   color: $color-text-muted;
+   img {
+      position: absolute;
+      top: 0;
+      left: 0;
 
-   &--accent {
-      background-color: color.scale($color-primary, $lightness: 45%);
-      color: $color-primary;
-   }
-}
+      width: 100%;
+      height: 100vh;
 
-// Adaptive / Media Queries
-@media (max-width: 992px) {
-   .hero__container,
-   .contact__box {
-      grid-template-columns: 1fr;
+      object-fit: cover;
+      object-position: center bottom;
    }
 
-   .features__grid,
-   .services__grid {
-      grid-template-columns: repeat(2, 1fr);
-   }
+   svg {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
 
-   .cases__grid,
-   .pricing__grid {
-      grid-template-columns: 1fr;
-   }
-}
+      width: 100%;
+      height: 100%;
 
-@media (max-width: 576px) {
-   .features__grid,
-   .services__grid {
-      grid-template-columns: 1fr;
-   }
-
-   .form__row {
-      grid-template-columns: 1fr;
+      object-fit: cover;
    }
 }

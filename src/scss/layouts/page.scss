@@ -7,14 +7,21 @@
       z-index: 11;
       top: 0;
       left: 0;
-
       width: 100%;
-
       transition: all 0.5s ease;
+
       &.with-shadow {
-         background: rgb(17 17 17 / 95%);
+         background: $background-secondary;
          box-shadow: 0 0 9px $box-shadow;
          color: $color-white;
+
+         .burger-button {
+            border: 1px solid $color-white;
+            border-radius: 0.5rem;
+            svg {
+               stroke: $color-white;
+            }
+         }
       }
    }
 }
