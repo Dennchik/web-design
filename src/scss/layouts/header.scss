@@ -1,0 +1,39 @@
+@use '../core/variables' as *;
+
+.header {
+   padding: 2rem 0;
+   border-bottom: 1px solid $color-border;
+
+   // .header__container
+   &__container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+   }
+
+   // .header__logo
+   .logo {
+      font-weight: 800;
+      font-size: 2rem;
+      text-decoration: none;
+   }
+
+   .nav {
+      // .nav__list
+      &__list {
+         display: flex;
+         list-style: none;
+         gap: 3.2rem;
+      }
+
+      // .nav__link
+      &__link {
+         text-decoration: none;
+         transition: color 0.3s ease-in-out;
+
+         &:hover {
+            color: $color-primary;
+         }
+      }
+   }
+}

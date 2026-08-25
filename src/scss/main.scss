@@ -1,0 +1,131 @@
+// todo - Fonts
+@use 'core/fonts';
+@use 'core/icon-fonts';
+
+//todo - Core
+@use 'sass:color';
+@use 'core/reset';
+@use 'core/mixins' as *;
+
+//todo - Variables
+@use 'core/variables' as *;
+
+//todo - Layouts
+@use 'layouts/header';
+@use 'layouts/bem-block';
+@use 'layouts/page';
+
+//todo - Sections
+@use 'sections/section-hero';
+@use 'sections/section-features';
+@use 'sections/section-services';
+@use 'sections/section-cases';
+@use 'sections/section-pricing';
+@use 'sections/section-contacts';
+
+//* ---------------------------------------------------------
+$font-family:
+   'Inter',
+   -apple-system,
+   BlinkMacSystemFont,
+   sans-serif;
+
+.container {
+   max-width: 1440px;
+   margin: 0 auto;
+   padding: 0 20px;
+}
+
+.section-title {
+   font-size: 32px;
+   font-weight: 700;
+   margin-bottom: 40px;
+}
+
+// Buttons
+.btn {
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+   padding: 12px 24px;
+   border-radius: 8px;
+   font-size: 15px;
+   font-weight: 600;
+   border: none;
+   cursor: pointer;
+   transition: all 0.2s ease;
+
+   &--primary {
+      background-color: $color-primary;
+      color: $color-white;
+
+      &:hover {
+         background-color: $color-primary-hover;
+      }
+   }
+
+   &--secondary {
+      background-color: transparent;
+      color: $color-text;
+      border: 1px solid $color-border;
+
+      &:hover {
+         background-color: $color-bg-light;
+      }
+   }
+
+   &--accent {
+      background-color: $color-accent;
+      color: $color-white;
+
+      &:hover {
+         background-color: color.scale($color-accent, $lightness: -10%);
+      }
+   }
+}
+
+// Header
+
+// Services
+
+.tag {
+   background-color: $color-bg-light;
+   padding: 4px 12px;
+   border-radius: 12px;
+   font-size: 12px;
+   color: $color-text-muted;
+
+   &--accent {
+      background-color: color.scale($color-primary, $lightness: 45%);
+      color: $color-primary;
+   }
+}
+
+// Adaptive / Media Queries
+@media (max-width: 992px) {
+   .hero__container,
+   .contact__box {
+      grid-template-columns: 1fr;
+   }
+
+   .features__grid,
+   .services__grid {
+      grid-template-columns: repeat(2, 1fr);
+   }
+
+   .cases__grid,
+   .pricing__grid {
+      grid-template-columns: 1fr;
+   }
+}
+
+@media (max-width: 576px) {
+   .features__grid,
+   .services__grid {
+      grid-template-columns: 1fr;
+   }
+
+   .form__row {
+      grid-template-columns: 1fr;
+   }
+}

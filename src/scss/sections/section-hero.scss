@@ -1,0 +1,88 @@
+//* Hero Section
+
+@use '../core/variables' as *;
+
+.hero {
+   padding: 80px 0;
+
+   // .hero__container
+   &__container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+   }
+
+   // .hero__content
+   &__content {
+   }
+
+   // .hero__title
+   &__title {
+      font-size: 4.8rem;
+      line-height: 1.15;
+      margin-bottom: 25px;
+      font-family: $font-family-title;
+
+      span {
+         &:nth-child(1) {
+            margin-right: 0.8rem;
+         }
+      }
+
+      // .hero__title-accent
+      &-accent {
+         color: $color-primary;
+      }
+   }
+
+   // .hero__description
+   &__description {
+      font-size: 18px;
+      color: $color-text-muted;
+      margin-bottom: 32px;
+   }
+
+   // .hero__actions
+   &__actions {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 40px;
+   }
+
+   // .hero__badges
+   &__badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      list-style: none;
+   }
+
+   // .hero__badge
+   &__badge {
+      background-color: $color-bg-light;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+
+      &::before {
+         content: '✓';
+         color: $color-primary;
+         margin-right: 8px;
+         font-weight: bold;
+      }
+   }
+
+   // .hero__preview
+   &__preview {
+      width: 100%;
+      height: auto;
+
+      img {
+         width: 100%;
+         height: auto;
+      }
+   }
+}

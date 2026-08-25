@@ -1,0 +1,54 @@
+.footer
+	.footer__body
+		.footer__content
+			.footer__wrapper._container
+				//- Левая колонка: Призыв и Контакты
+				.footer__info 
+					.footer__row
+						h2.footer__title Остались вопросы? <br> Давайте обсудим ваш праздник!
+						p.footer__desc Заполните форму, и я свяжусь с вами в течение 15 минут, чтобы уточнить детали и забронировать дату. 
+					.footer__row
+						.footer__contacts-block
+							a.footer__phone(href="tel:+79106071900") +7 (910) 607-19-00
+						.footer__socials
+							.footer-socials
+								a.footer-socials__social-link(href="#telegram" aria-label="Telegram")
+									+iconfont('telegram-draw', 'icon')
+								a.footer-socials__social-link(href="#whatsapp" aria-label="WhatsApp")
+									+iconfont('whatsapp-draw', 'icon')
+								a.footer-socials__social-link(href="#vk" aria-label="VK")
+									+iconfont('vk-draw', 'icon')
+				//- Правая колонка: Форма
+				.footer__form.form-order
+
+					form.form(action="#" method="POST" id="form-order")
+						.form__row.input-container
+							label(for="user-name") 
+								input.form__input.name(id="user-name" type="text" placeholder="Ваше имя *" required)
+						.form__row
+							label(for="user-phone") 
+								input.form__input.phone(id="user-phone" type="tel" placeholder="+7 (___) ___-__-__ *" required)
+						.form__row
+							label(for="event-date") 
+								input.form__input(id="event-date" type="text" placeholder="Дата мероприятия (если известна)")
+						.form__row
+							label(for="user-email") 
+								input.form__input.email(type="email" id="user-email" placeholder="Ваш email *" required)
+						.button-container 
+							button.form__submit.btn.send-button(type="submit" form="form-order" disabled ) Забронировать дату
+						.form__agreement 
+							.checkbox
+								label.checkbox__label.has-error
+									input.checkbox__input.checked(type="checkbox" id="agree" name="agree" form="form-order")
+									span.checkbox__checked
+										+iconfont('check', 'icon')
+							.checkbox__text
+								span Нажимая кнопку, вы соглашаетесь c 
+								span
+									a(href="#") политикой конфиденциальности
+					//- Нижняя линия (Копирайт)
+		.footer__bottom-wrapper
+			.footer__bottom._container
+				span.footer__copy © 2026 Максим Кушнаренко. Ведущий.
+				a.footer__developer(href="https://gusli-studio.ru/" target="_blank") Дизайн и разработка Gusli Media-Group
+

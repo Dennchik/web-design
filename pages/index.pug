@@ -1,0 +1,21 @@
+extends @/pug/layouts/app_layout.pug
+
+append link
+prepend script
+
+block title
+   - var text = 'Web Design'
+
+block main-content
+   section.main-content__section
+      include  @/pug/sections/section-hero
+   section.main-content__section
+      include @/pug/sections/section-features
+   section.main-content__section
+      include @/pug/sections/section-services
+   section.main-content__section.slide-content
+      include @/pug/sections/section-cases
+   section.main-content__section
+      include @/pug/sections/section-pricing
+      section.main-content__section
+      include @/pug/sections/section-contacts
