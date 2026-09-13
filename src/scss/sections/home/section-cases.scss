@@ -1,6 +1,6 @@
-//* Cases
-@use '../core/variables' as *;
-@use '../core/mixins' as *;
+// * Cases
+@use '../../core/variables' as *;
+@use '../../core/mixins' as *;
 @use 'sass:color';
 
 .cases {
@@ -13,10 +13,11 @@
    // .case__header
    &__header {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 4rem;
       gap: 1rem;
+      align-items: center;
+      justify-content: space-between;
+
+      margin-bottom: 4rem;
 
       @include screen-425 {
          flex-direction: column;
@@ -30,9 +31,9 @@
 
    // .case__link
    &__link {
+      font-weight: 600;
       color: $color-primary;
       text-decoration: none;
-      font-weight: 600;
    }
 
    // .case__grid
@@ -48,13 +49,13 @@
 }
 
 .case-card {
-   box-shadow: $box-shadow;
    border-radius: $border-radius;
+   box-shadow: $box-shadow;
 
    // .case-card__image-wrapper
    &__image-wrapper {
-      height: 24rem;
       overflow: hidden;
+      height: 24rem;
 
       img {
       }
@@ -64,9 +65,10 @@
    &__image {
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      border-top-right-radius: $border-radius;
       border-top-left-radius: $border-radius;
+      border-top-right-radius: $border-radius;
+
+      object-fit: cover;
    }
 
    // .case-card__info
@@ -76,8 +78,8 @@
 
    // .case-card__title
    &__title {
-      font-size: 1.8rem;
       margin-bottom: 1.6rem;
+      font-size: 1.8rem;
    }
 
    // .case-card__tags
@@ -88,15 +90,17 @@
 
    // .case-card__tag
    &__tag {
-      background-color: $color-bg-light;
       padding: 4px 12px;
       border-radius: 12px;
+
       font-size: 12px;
       color: $color-text-light;
 
+      background-color: $color-bg-light;
+
       &.tag--accent {
-         background-color: color.scale($color-primary, $lightness: 45%);
          color: $color-text-light;
+         background-color: color.scale($color-primary, $lightness: 45%);
       }
    }
 }

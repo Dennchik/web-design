@@ -1,4 +1,2 @@
-@use "variables" as *;
-@use "mixins" as *;
-@include font-face("Inter", "Inter", 400, "normal");
-@include font-face("Manrope", "Manrope", 400, "normal");
+@use "variables.scss" as *;
+@use "mixins.scss" as *;

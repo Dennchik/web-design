@@ -2,32 +2,33 @@
 @use 'core/fonts';
 @use 'core/icon-fonts';
 
-//todo - Core
+// todo - Core
 @use 'sass:color';
 @use 'core/reset';
 @use 'core/mixins' as *;
 
-//todo - Assets
+// todo - Assets
 @use 'assets/burger-button';
 @use 'assets/mobile-menu';
 
-//todo - Variables
+// todo - Variables
 @use 'core/variables' as *;
 
-//todo - Layouts
+// todo - Layouts
 @use 'layouts/header';
+@use 'layouts/footer';
 @use 'layouts/bem-block';
 @use 'layouts/page';
 
-//todo - Sections
-@use 'sections/section-hero';
-@use 'sections/section-features';
-@use 'sections/section-services';
-@use 'sections/section-cases';
-@use 'sections/section-pricing';
-@use 'sections/section-contacts';
+// todo - Sections
+@use 'sections/home/section-hero';
+@use 'sections/home/section-features';
+@use 'sections/home/section-services';
+@use 'sections/home/section-cases';
+@use 'sections/home/section-pricing';
+@use 'sections/home/section-contacts';
 
-//* ---------------------------------------------------------
+// * ---------------------------------------------------------
 .wrapper {
    display: flex;
    flex-direction: column;
@@ -48,6 +49,7 @@
       padding: 0 10px;
    }
 }
+
 [class*='icon-'] {
    pointer-events: none;
    display: inline-flex;

@@ -6,20 +6,6 @@
 }
 
 @font-face {
-  font-family: "Inter";
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-  src: url("../fonts/Inter.eot") format("eot"), url("../fonts/Inter.woff") format("woff"), url("../fonts/Inter.woff2") format("woff2"), url("../fonts/Inter.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Manrope";
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-  src: url("../fonts/Manrope.eot") format("eot"), url("../fonts/Manrope.woff") format("woff"), url("../fonts/Manrope.woff2") format("woff2"), url("../fonts/Manrope.ttf") format("truetype");
-}
-@font-face {
   font-family: "icon-set";
   font-weight: normal;
   font-style: normal;
@@ -858,12 +844,12 @@ h6 {
 }
 .contact__box {
   position: relative;
-  background-color: #0b132a;
-  padding: 6rem;
-  color: rgb(255, 255, 255);
-  border-radius: 2rem;
-  box-shadow: 0 0 7px #000;
   align-items: center;
+  padding: 6rem;
+  border-radius: 2rem;
+  color: rgb(255, 255, 255);
+  background-color: #0b132a;
+  box-shadow: 0 0 7px #000;
 }
 @media screen and (width < 490px) {
   .contact__box {
@@ -875,9 +861,9 @@ h6 {
   z-index: 1;
   top: 0;
   left: 0;
+  overflow: hidden;
   width: 100%;
   height: 100%;
-  overflow: hidden;
   border-radius: 2rem;
 }
 .contact__box-image img {
@@ -887,9 +873,9 @@ h6 {
 }
 .contact__content {
   position: relative;
+  z-index: 2;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  z-index: 2;
   gap: 3rem;
 }
 @media screen and (width < 768px) {
@@ -901,9 +887,9 @@ h6 {
   }
 }
 .contact__title {
+  margin-bottom: 16px;
   font-size: 36px;
   line-height: 1.2;
-  margin-bottom: 16px;
 }
 @media (width > 320px) and (width <= 1920px) {
   .contact__title {
@@ -916,8 +902,8 @@ h6 {
   }
 }
 .contact__text {
-  color: #a0aec0;
   margin-bottom: 32px;
+  color: #a0aec0;
 }
 
 .form {
@@ -938,11 +924,11 @@ h6 {
 .form__input, .form__textarea {
   width: 100%;
   padding: 14px 16px;
-  border-radius: 8px;
   border: none;
+  border-radius: 8px;
   font-size: 14px;
-  outline: none;
   background-color: rgb(255, 255, 255);
+  outline: none;
 }
 .form__textarea {
   resize: vertical;

@@ -1,78 +1,54 @@
-// vite/tasks/fontsStyle.js
 import fs from 'fs';
 import path from 'path';
 import { paths } from '../config/path.js';
+import { fonts } from './fonts.js';
 
 // 🔹 Функция генерации SCSS с @include font-face
 function generateFontsScss() {
-   const fontsDir = paths.fonts.src;
-   const targetFile = paths.fonts.dest || 'src/scss/generated/_fonts.scss';
+   const fontsDir = paths.fontsSrc;
+   const targetFile = paths.fontsScss;
 
-   // ✅ Всегда начинаем с чистого содержимого
-   let content = '@use "variables" as *;\r\n@use "mixins" as *;\r\n';
+   let content = '@use "variables.scss" as *;\r\n@use "mixins.scss" as *;\r\n';
 
    if (fs.existsSync(fontsDir)) {
-      // ✅ Получаем все файлы в папке
       const items = fs.readdirSync(fontsDir);
-
-      // ✅ Фильтруем только файлы шрифтов
-      const fontFiles = items.filter((item) => {
-         const ext = path.extname(item).toLowerCase();
-         return ['.ttf', '.woff', '.woff2', '.otf', '.eot'].includes(ext);
-      });
-
-      // ✅ Используем Set для уникальных имен
-      const processedFonts = new Set();
-      fontFiles.forEach((item) => {
-         // ✅ Берем имя файла без расширения
-         const fontName = path.basename(item, path.extname(item));
-         if (!processedFonts.has(fontName)) {
-            processedFonts.add(fontName);
+      let c_fontName = '';
+      items.forEach((item) => {
+         const fontName = item.split('.')[0];
+         if (c_fontName !== fontName) {
             content += `@include font-face("${fontName}", "${fontName}", 400, "normal");\r\n`;
          }
+         c_fontName = fontName;
       });
-
-      console.log(`📁 Найдено шрифтов: ${processedFonts.size}`);
-   } else {
-      console.warn(`⚠️ Директория шрифтов не найдена: ${fontsDir}`);
    }
 
-   // ✅ Создаем директорию для файла, если её нет
-   const targetDir = path.dirname(targetFile);
-   if (!fs.existsSync(targetDir)) {
-      fs.mkdirSync(targetDir, { recursive: true });
-   }
-
-   // ✅ Перезаписываем файл целиком
+   fs.mkdirSync(path.dirname(targetFile), { recursive: true });
    fs.writeFileSync(targetFile, content);
    console.log(`✅ _fonts.scss сгенерирован: ${targetFile}`);
 }
 
 // 🔹 Плагин для Vite
 export function fontStyle() {
-   let timeoutId = null;
-
    return {
       name: 'fonts-style-plugin',
       buildStart() {
+         // при старте конвертируем шрифты и генерируем SCSS
+         fonts(paths.fontsSrc);
          generateFontsScss();
       },
       configureServer(server) {
-         const fontsPath = paths.fonts.src;
+         const fontsPath = paths.fontsSrc;
          if (!fs.existsSync(fontsPath)) return;
 
-         // ✅ Следим за изменениями в папке со шрифтами
          fs.watch(fontsPath, { persistent: true }, (_eventType, filename) => {
             if (!filename) return;
+            const ext = path.extname(filename).toLowerCase();
+            if (ext !== '.ttf') return; // реагируем только на TTF
 
-            // ✅ Дебаунс для предотвращения множественных вызовов
-            clearTimeout(timeoutId);
-            timeoutId = setTimeout(() => {
-               console.log(`⚡ Изменение в файле: ${filename}`);
-               console.log('🔄 Пересоздаём _fonts.scss...');
-               generateFontsScss();
-               server.ws.send({ type: 'full-reload' });
-            }, 300);
+            console.log('⚡ Шрифты изменились, пересоздаём _fonts.scss...');
+            fonts(fontsPath);
+            generateFontsScss();
+            server.ws.send({ type: 'full-reload' });
          });
       },
    };

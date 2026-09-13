@@ -11,26 +11,26 @@ import sortMediaQueries from 'postcss-sort-media-queries';
 import { defineConfig } from 'vite';
 //* ✅ config
 import { app } from './vite/config/app.js';
+//* ✅ Path
 import { paths } from './vite/config/path.js';
 //* ✅ Tasks
+import { getPugConfig } from './vite/config/pug-config.js';
+import { compileScss } from './vite/tasks/compileScss.js';
 import { fonts } from './vite/tasks/fonts.js';
 import { fontStyle } from './vite/tasks/fontsStyle.js';
-import { compileScss } from './vite/tasks/compileScss.js';
-import { getPugConfig } from './vite/config/pug-config.js';
 import { moveHtmlFiles } from './vite/tasks/moveHtmlFiles.js';
 import { convertImagesToWebp } from './vite/tasks/webp.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 //* ✅ Вызываем fontStyle ДО конфигурации
-// fontStyle(paths.fonts.src, paths.fonts.dest);
-// fonts(paths.fonts.src);
+fonts(paths.fonts.src);
 
 export default defineConfig(({ command }) => {
    const isProd = command === 'build';
    const isDev = command === 'dev';
 
-   // ✅ Вызываем compileScss() только для продакшн сборки
+   //* ✅ Вызываем compileScss() только для продакшн сборки
    if (isProd) {
       compileScss();
    }
@@ -41,6 +41,7 @@ export default defineConfig(({ command }) => {
          fontStyle(),
          convertImagesToWebp(app.webp),
          viteConvertPugInHtml(getPugConfig(isProd)),
+
          // 🔹 ключевой плагин для переименования HTML
          moveHtmlFiles(), // 👈 ключевой плагин для переименования HTML
          // 🔹 Добавляем анализатор только в продакшн-сборке
@@ -51,7 +52,6 @@ export default defineConfig(({ command }) => {
           brotliSize: true,
           }), */
       ],
-
       server: {
          open: true,
       },
@@ -99,8 +99,9 @@ export default defineConfig(({ command }) => {
 
          rollupOptions: {
             input: {
-               main: resolve(__dirname, 'src/js/main.js'),
-               // app: resolve(__dirname, 'src/js/app.js'),
+               main: resolve(__dirname, 'src/js/main.js'), // app:
+               // resolve(__dirname,
+               // 'src/js/app.js'),
             },
             output: {
                entryFileNames: 'assets/[name].js',
@@ -117,6 +118,9 @@ export default defineConfig(({ command }) => {
                      }
                      if (id.includes('animejs') || id.includes('gsap')) {
                         return 'anime-vendors';
+                     }
+                     if (id.includes('swiper')) {
+                        return 'swiper-vendors';
                      }
                      return 'vendor';
                   }

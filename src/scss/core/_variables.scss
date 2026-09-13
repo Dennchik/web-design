@@ -1,15 +1,16 @@
-//* - [Variables] -
+// * - [Variables] -
 $maxWidthContainer: 1440px;
 
 $radius: 2rem; // Скругление углов (как на референсе)
 $gap: 1.6rem; // Отступы между карточками
-$transition-linear-ease: var(--linear-ease);
+$transition-linear-ease: 0.3s ease-in-out;
 $background: rgb(255 255 255);
+$background-dark: rgb(23 30 38);
 $background-secondary: rgb(28 35 43/ 95%);
 $border-radius: 1.2rem;
-$color-border: rgb(233 236 239);
+$color-border: rgb(23 30 38 / 40%);
 
-//* - [Font Variables] -
+// * - [Font Variables] -
 $font-path: '../fonts';
 $font-family-default: 'Inter', sans-serif;
 $font-family-title: 'Manrope', sans-serif;
@@ -17,14 +18,18 @@ $font-hand: 'cursive', sans-serif; // Шрифт для "Pf" (подключит
 $font-weight-default: 400;
 $font-size: 1.6rem;
 
-$box-shadow: 0 0 7px -1px rgb(26 29 32 / 0.15);
-$color-primary: rgb(85 85 255 / 0.7);
-$color-primary-hover: rgb(85 85 255 / 0.5);
+$box-shadow: 0 0 7px -1px rgb(26 29 32 / 15%);
+$color-primary: rgb(85 85 255 / 70%);
+$color-primary-hover: rgb(85 85 255 / 50%);
 $color-accent: rgb(255 163 67);
 $color-text: rgb(11 19 42);
-$color-text-light: rgb(11 19 42 / 0.7);
-$color-text-muted: rgb(145 156 185 / 0.8);
-$color-bg-light: rgb(248 249 250);
+$color-text-light: rgb(11 19 42 / 70%);
+$color-text-muted: rgb(145 156 185);
+$color-bg-light: rgb(227 227 227);
 $color-white: rgb(255 255 255);
+$blur: rgb(202 209 228 / 90%);
+$text-selection: rgb(116 151 248);
 
-$text-selection: $color-text-muted;
+root {
+   --linear-in-out: 0.4s ease-in-out;
+}

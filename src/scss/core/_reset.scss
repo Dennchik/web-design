@@ -1,7 +1,9 @@
 @use 'variables' as *;
 @use 'mixins.scss' as *;
+
 html {
    counter-reset: heading;
+
    // scroll-behavior: smooth;
    // scrollbar-width: thin;
    height: 100%;
@@ -100,6 +102,7 @@ select {
    color: inherit;
    background-color: transparent;
 }
+
 a:focus,
 a:active,
 input:focus,
@@ -108,7 +111,7 @@ button:focus,
 button:active,
 textarea:focus,
 textarea:active {
-   // outline: none;
+   outline: none;
 }
 
 button::-moz-focus-inner {
@@ -119,9 +122,11 @@ button::-moz-focus-inner {
 label {
    cursor: pointer;
 }
+
 table {
    font-weight: initial;
 }
+
 ul,
 ol,
 li {
