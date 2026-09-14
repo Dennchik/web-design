@@ -1,6 +1,7 @@
 @charset "UTF-8";
-root {
+:root {
   --linear-in-out: 0.4s ease-in-out;
+  --pulse: #9a8bff;
 }
 
 /* stylelint-disable at-rule-descriptor-value-no-unknown */
@@ -307,7 +308,7 @@ h6 {
   width: 100%;
   max-width: 320px;
   height: 100vh;
-  background: rgba(28, 35, 43, 0.95);
+  background: rgba(28, 35, 43, 0.45);
   transition: transform 0.3s ease-in-out;
 }
 .mobile-menu._show {
@@ -318,9 +319,9 @@ h6 {
   position: relative;
   width: 100%;
   height: 100%;
-  background: rgba(28, 35, 43, 0.95);
-  box-shadow: 0 0 7px -1px rgba(26, 29, 32, 0.15);
   padding: 4rem 2.4rem;
+  background: rgba(28, 35, 43, 0.45);
+  box-shadow: 0 0 7px -1px rgba(26, 29, 32, 0.15);
 }
 .mobile-menu__header {
   display: flex;
@@ -370,14 +371,14 @@ h6 {
 .mobile-menu .nav__list {
   display: flex;
   flex-direction: column;
-  list-style: none;
   gap: 3.2rem;
   font-size: 3rem;
+  list-style: none;
 }
 .mobile-menu .nav__link {
+  color: rgb(255, 255, 255);
   text-decoration: none;
   transition: color 0.3s ease-in-out;
-  color: rgb(255, 255, 255);
 }
 .mobile-menu .nav__link:hover {
   color: rgba(85, 85, 255, 0.7);
@@ -385,22 +386,19 @@ h6 {
 
 .header {
   padding: 2rem 0;
-  border-bottom: 1px solid rgba(23, 30, 38, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 .header__container {
   display: grid;
   grid-template-columns: min-content 1fr min-content;
-  align-items: center;
   gap: 2rem;
+  align-items: center;
   justify-content: space-between;
 }
 .header .logo {
-  font-weight: 800;
   font-size: 1.8rem;
+  font-weight: 800;
   text-decoration: none;
-}
-.header .logo__text {
-  white-space: nowrap;
 }
 .header__burger-button {
   display: none;
@@ -416,10 +414,10 @@ h6 {
 }
 .header .nav__list {
   display: flex;
+  gap: 3.2rem;
   align-items: center;
   justify-content: center;
   list-style: none;
-  gap: 3.2rem;
 }
 .header .nav__link {
   text-decoration: none;
@@ -531,10 +529,15 @@ h6 {
     color: rgba(85, 85, 255, 0.7);
   }
 }
+.footer__brand-logo {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
 .footer__brand {
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
+  gap: 1rem;
 }
 .footer__brand-desc {
   max-width: 28rem;
@@ -578,6 +581,8 @@ h6 {
   /* Нижняя секция */
 }
 .footer__bottom {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -605,7 +610,7 @@ h6 {
   padding: 3rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 2rem;
-  background-color: rgba(28, 35, 43, 0.95);
+  background-color: rgba(28, 35, 43, 0.45);
 }
 @media screen and (width < 490px) {
   .form-card {
@@ -674,10 +679,82 @@ h6 {
   transform: translateY(1px);
 }
 
+.page-header {
+  padding: 12rem 0 4rem;
+}
+@media screen and (width < 490px) {
+  .page-header {
+    padding: 9rem 0 3rem;
+  }
+}
+.page-header__breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.6rem;
+  font-size: 1.4rem;
+}
+.page-header__breadcrumb-link {
+  color: rgb(145, 156, 185);
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+@media (hover: hover) {
+  .page-header__breadcrumb-link:hover {
+    color: rgba(85, 85, 255, 0.7);
+  }
+}
+.page-header__breadcrumb-sep {
+  color: rgb(145, 156, 185);
+}
+.page-header__breadcrumb-current {
+  font-weight: 500;
+  color: rgb(11, 19, 42);
+}
+.page-header__title {
+  margin-bottom: 1.2rem;
+  font-family: "Manrope", sans-serif;
+  font-size: 4rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+@media (width > 320px) and (width <= 1920px) {
+  .page-header__title {
+    font-size: calc(26px + 14 * (100vw - 320px) / 1600);
+  }
+}
+@media screen and (width <= 320px) {
+  .page-header__title {
+    font-size: 26px;
+  }
+}
+.page-header__text {
+  max-width: 56rem;
+  font-size: 1.6rem;
+  color: rgba(11, 19, 42, 0.7);
+}
+
+.header__logo {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.logo__image {
+  transform: skewX(-14deg);
+  display: block;
+  width: 9px;
+  height: 20px;
+  background: var(--pulse);
+}
+.logo__text {
+  white-space: nowrap;
+}
+
 .section-title {
+  margin-bottom: 40px;
   font-size: 32px;
   font-weight: 700;
-  margin-bottom: 40px;
 }
 @media (width > 320px) and (width <= 1920px) {
   .section-title {
@@ -691,59 +768,59 @@ h6 {
 }
 
 .button {
+  cursor: pointer;
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 1.2rem 2.4rem;
+  border: none;
   border-radius: 1.2rem;
   font-size: 1.5rem;
   font-weight: 500;
-  border: none;
-  cursor: pointer;
   transition: all 0.2s ease;
 }
 .button--primary {
-  background-color: rgba(85, 85, 255, 0.7);
   color: rgb(255, 255, 255);
+  background-color: rgba(85, 85, 255, 0.7);
   transition: background-color 0.3s ease-in-out;
 }
-.button--primary:before {
+.button--primary::before {
+  content: "";
   position: absolute;
   z-index: -2;
-  background-size: 150% 150%;
+  inset: -2px;
   border: 1px solid rgba(85, 85, 255, 0.7);
   border-radius: calc(1.2rem + 3px);
+  background: url("/img/primary-button-background.png") center left/cover no-repeat;
+  background-size: 150% 150%;
   transition: all 0.3s ease-in-out;
   animation: 16s ease-in-out infinite move-background;
-  inset: -2px;
-  content: "";
-  background: url("/img/primary-button-background.png") center left/cover no-repeat;
 }
-.button--primary:after {
+.button--primary::after {
   content: "";
-  background: rgba(85, 85, 255, 0.7);
-  z-index: -1;
-  border-radius: 1.2rem;
-  transition: all 0.3s ease-in-out;
   position: absolute;
+  z-index: -1;
   inset: 0;
+  border-radius: 1.2rem;
   opacity: 0.8;
+  background: rgba(85, 85, 255, 0.7);
+  transition: all 0.3s ease-in-out;
 }
 .button--primary:hover {
   background-color: rgba(0%, 0%, 93.3333333333%, 0.5);
 }
 .button--secondary {
-  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   color: rgb(11, 19, 42);
-  border: 1px solid rgba(23, 30, 38, 0.4);
+  background-color: transparent;
 }
 .button--secondary:hover {
   background-color: rgb(227, 227, 227);
 }
 .button--accent {
-  background-color: rgb(255, 163, 67);
   color: rgb(255, 255, 255);
+  background-color: rgb(255, 163, 67);
 }
 .button--accent:hover {
   background-color: rgb(100%, 57.7421777222%, 13.6470588235%);
@@ -767,7 +844,7 @@ h6 {
 }
 .page__header.with-shadow {
   color: rgb(255, 255, 255);
-  background: rgba(28, 35, 43, 0.95);
+  background: rgb(23, 30, 38);
   box-shadow: 0 0 9px 0 0 7px -1px rgba(26, 29, 32, 0.15);
 }
 .page__header.with-shadow .burger-button {
@@ -793,11 +870,11 @@ h6 {
   }
 }
 .hero__title {
-  font-size: 4.8rem;
-  line-height: 1.15;
   margin-bottom: 2.4rem;
   font-family: "Manrope", sans-serif;
+  font-size: 4.8rem;
   font-weight: 600;
+  line-height: 1.15;
 }
 @media (width > 320px) and (width <= 1920px) {
   .hero__title {
@@ -816,9 +893,9 @@ h6 {
   color: rgba(85, 85, 255, 0.7);
 }
 .hero__description {
+  margin-bottom: 3.2rem;
   font-size: 1.8rem;
   color: rgba(11, 19, 42, 0.7);
-  margin-bottom: 3.2rem;
 }
 .hero__actions {
   display: flex;
@@ -842,14 +919,14 @@ h6 {
 }
 .hero__badge {
   position: relative;
-  background-color: rgb(227, 227, 227);
-  padding: 1rem;
-  border-radius: 1.2rem;
-  font-size: 13px;
   display: flex;
   align-items: center;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.2rem;
+  font-size: 13px;
+  background-color: rgb(227, 227, 227);
   box-shadow: 0 0 7px -1px rgba(26, 29, 32, 0.15);
-  border: 1px solid rgba(23, 30, 38, 0.4);
 }
 @media screen and (width < 425px) {
   .hero__badge {
@@ -858,16 +935,16 @@ h6 {
 }
 .hero__badge::before {
   content: "✓";
-  color: rgb(255, 255, 255);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 1rem;
-  font-weight: bold;
   width: 18px;
   min-width: 18px;
   height: 18px;
+  margin-right: 1rem;
   border-radius: 100vw;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
   background-color: rgba(85, 85, 255, 0.7);
 }
 .hero__preview {
@@ -899,10 +976,10 @@ h6 {
 }
 
 .feature-card {
-  border: 1px solid rgba(23, 30, 38, 0.4);
-  background-color: rgb(227, 227, 227);
   padding: 2.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 1.2rem;
+  background-color: rgb(227, 227, 227);
   box-shadow: 0 0 7px -1px rgba(26, 29, 32, 0.15);
 }
 .feature-card__title {
@@ -910,9 +987,9 @@ h6 {
   font-weight: 500;
 }
 .feature-card__text {
+  font-size: 1.4rem;
   color: rgba(11, 19, 42, 0.7);
   opacity: 0.9;
-  font-size: 1.4rem;
 }
 
 .services {
@@ -935,14 +1012,14 @@ h6 {
 }
 
 .service-card {
-  border: 1px solid rgba(23, 30, 38, 0.4);
   padding: 2.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 1.2rem;
   box-shadow: 0 0 7px -1px rgba(26, 29, 32, 0.15);
 }
 .service-card__title {
-  font-size: 1.8rem;
   margin-bottom: 12px;
+  font-size: 1.8rem;
 }
 .service-card__text {
   font-size: 1.4rem;
@@ -1047,10 +1124,10 @@ h6 {
 }
 
 .price-card {
-  border: 1px solid rgba(23, 30, 38, 0.4);
-  border-radius: 1.2rem;
-  padding: 3rem;
   position: relative;
+  padding: 3rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.2rem;
   box-shadow: 0 0 7px -1px rgba(26, 29, 32, 0.15);
 }
 .price-card--popular {
@@ -1060,32 +1137,32 @@ h6 {
   position: absolute;
   top: -12px;
   left: 3.2rem;
-  background-color: rgb(255, 163, 67);
-  color: rgb(255, 255, 255);
-  font-size: 11px;
-  font-weight: 700;
   padding: 4px 12px;
   border-radius: 100vh;
+  font-size: 11px;
+  font-weight: 700;
+  color: rgb(255, 255, 255);
   text-transform: uppercase;
   letter-spacing: 2px;
+  background-color: rgb(255, 163, 67);
 }
 .price-card__title {
-  font-size: 2.2rem;
   margin-bottom: 4px;
+  font-size: 2.2rem;
 }
 .price-card__subtitle {
+  margin-bottom: 2.4rem;
   font-size: 14px;
   color: rgb(145, 156, 185);
-  margin-bottom: 2.4rem;
 }
 .price-card__features {
   list-style: none;
 }
 .price-card__features li {
-  font-size: 14px;
-  margin-bottom: 12px;
   display: flex;
   align-items: center;
+  margin-bottom: 12px;
+  font-size: 14px;
 }
 .price-card__features li::before {
   content: "✓";

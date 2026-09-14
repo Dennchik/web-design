@@ -1,6 +1,4 @@
-include @/pug/includes/mixins
-
-
+include ../includes/mixins
 doctype html
 html(lang="ru").scroll-smooth
 	head
@@ -23,10 +21,10 @@ html(lang="ru").scroll-smooth
 			.wrapper
 				.page#top
 					block mobile-menu
-						include @/pug/assets/mobile-menu
+						include ../assets/mobile-menu
 					block header
 						header.page__header.offset-header
-							include @/pug/layouts/header
+							include ../layouts/header
 					block page-content
 						main.page__main-content
 							.main-content#wrapper
