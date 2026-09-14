@@ -2,10 +2,38 @@
 @use '../core/mixins' as *;
 @use 'sass:color';
 
+.header {
+   // .header__logo
+   &__logo {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+   }
+}
+
+.logo {
+   // .logo__image
+   &__image {
+      transform: skewX(-14deg);
+
+      display: block;
+
+      width: 9px;
+      height: 20px;
+
+      background: var(--pulse);
+   }
+
+   // .logo__text
+   &__text {
+      white-space: nowrap;
+   }
+}
+
 .section-title {
+   margin-bottom: 40px;
    font-size: 32px;
    font-weight: 700;
-   margin-bottom: 40px;
 
    @include minmax-320-1920 {
       font-size: calc(22px + (32 - 22) * ((100vw - 320px) / (1920 - 320)));
@@ -17,46 +45,59 @@
 }
 
 .button {
+   cursor: pointer;
+
    position: relative;
+
    display: inline-flex;
    align-items: center;
    justify-content: center;
+
    padding: 1.2rem 2.4rem;
+   border: none;
    border-radius: $border-radius;
+
    font-size: 1.5rem;
    font-weight: 500;
-   border: none;
-   cursor: pointer;
+
    transition: all 0.2s ease;
 
    &--primary {
-      background-color: $color-primary;
       color: $color-white;
+      background-color: $color-primary;
       transition: background-color 0.3s ease-in-out;
 
-      &:before {
+      &::before {
+         content: '';
+
          position: absolute;
          z-index: -2;
-         background-size: 150% 150%;
+         inset: -2px;
+
          border: 1px solid $color-primary;
          border-radius: calc($border-radius + 3px);
-         transition: all 0.3s ease-in-out;
-         animation: 16s ease-in-out infinite move-background;
-         inset: -2px;
-         content: '';
+
          background: url('/img/primary-button-background.png') center left /
             cover no-repeat;
+         background-size: 150% 150%;
+
+         transition: all 0.3s ease-in-out;
+         animation: 16s ease-in-out infinite move-background;
       }
 
-      &:after {
+      &::after {
          content: '';
-         background: $color-primary;
-         z-index: -1;
-         border-radius: $border-radius;
-         transition: all 0.3s ease-in-out;
+
          position: absolute;
+         z-index: -1;
          inset: 0;
+
+         border-radius: $border-radius;
+
          opacity: 0.8;
+         background: $color-primary;
+
+         transition: all 0.3s ease-in-out;
       }
 
       &:hover {
@@ -65,9 +106,9 @@
    }
 
    &--secondary {
-      background-color: transparent;
+      border: 1px solid $border-color;
       color: $color-text;
-      border: 1px solid $color-border;
+      background-color: transparent;
 
       &:hover {
          background-color: $color-bg-light;
@@ -75,8 +116,8 @@
    }
 
    &--accent {
-      background-color: $color-accent;
       color: $color-white;
+      background-color: $color-accent;
 
       &:hover {
          background-color: color.scale($color-accent, $lightness: -10%);
@@ -89,6 +130,7 @@
    100% {
       background-position: 20% 20%;
    }
+
    50% {
       background-position: 80% 80%;
    }

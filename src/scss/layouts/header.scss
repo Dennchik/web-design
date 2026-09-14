@@ -3,26 +3,22 @@
 
 .header {
    padding: 2rem 0;
-   border-bottom: 1px solid $color-border;
+   border-bottom: 1px solid $border-color;
 
    // .header__container
    &__container {
       display: grid;
       grid-template-columns: min-content 1fr min-content;
-      align-items: center;
       gap: 2rem;
+      align-items: center;
       justify-content: space-between;
    }
 
    // .header__logo
    .logo {
-      font-weight: 800;
       font-size: 1.8rem;
+      font-weight: 800;
       text-decoration: none;
-
-      &__text {
-         white-space: nowrap;
-      }
    }
 
    // .header__burger-button
@@ -44,10 +40,11 @@
       // .nav__list
       &__list {
          display: flex;
+         gap: 3.2rem;
          align-items: center;
          justify-content: center;
+
          list-style: none;
-         gap: 3.2rem;
       }
 
       // .nav__link

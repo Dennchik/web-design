@@ -1,6 +1,7 @@
 header.header
 	.header__container.container
-		a.header__logo.logo(href="#")
+		+homeLink(filename, 'header__logo logo')
+			i.logo__image
 			span.logo__text GUSLI WEB
 		nav.header__nav.nav(data-da="bp-1" data-da-position="0" data-da-resolution="620")
 			ul.nav__list
@@ -14,5 +15,5 @@ header.header
 					a(href=linkTo('contacts', filename)).nav__link.anchor-link Контакты
 					//a.nav__link.anchor-link(href="#contacts") Контакты
 		.header__burger-button
-			include @/pug/assets/burger-button
+			include ../../pug/assets/burger-button
 		button.header__button.button.button--primary Оставить заявку

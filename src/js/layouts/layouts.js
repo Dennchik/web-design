@@ -7,7 +7,6 @@ export function shadowScrollHeader() {
 
       if (headerMain) {
          if (pageContainerTop < -50) {
-            console.log(pageContainerTop);
             headerMain.classList.add('with-shadow');
          } else if (pageContainerTop <= 0) {
             headerMain.classList.remove('with-shadow');

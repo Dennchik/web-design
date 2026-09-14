@@ -1,6 +1,6 @@
 footer.footer
 	.contact__box-image
-		img(src="img/contacts-bg.png", alt="image")
+		img(src="/img/contacts-bg.png", alt="image")
 	.footer__container
 		.footer__main
 			.footer__info
@@ -30,8 +30,10 @@ footer.footer
 							span.footer__contact-label Адрес
 							address.footer__contact-value Ул. [Real Street Name], [Office Number], [City]
 				.footer__brand
-					a.footer__brand-logo(href="/")
-						img(src="img/logo.svg", alt="GUSLI MEDIA", width="160", height="40")
+					a.footer__brand-logo.logo.anchor-link(href="#top")
+						i.logo__image
+						span.logo__text GUSLI WEB
+						//img(src="img/logo.svg", alt="GUSLI WEB", width="160", height="40")
 					p.footer__brand-desc Посмотрите примеры наших работ и как мы помогаем бизнесу
 				.footer__socials
 					a.footer__social-link(href="#", aria-label="Instagram")
@@ -52,8 +54,10 @@ footer.footer
 					input.form-card__input(type="email", placeholder="E-mail", required="")
 				.form-card__field.form-card__field--textarea
 					textarea.form-card__textarea(placeholder="Сообщение", rows="4")
-				button.form-card__button(type="submit") Отправить
+				button.button--primary.button(type="submit") Отправить
 		.footer__bottom
-			.footer__bottom-logo
-				img(src="img/logo.svg", alt="GUSLI WEB", width="180", height="45")
+			.footer__brand-logo
+				i.logo__image
+				span GUSLI WEB
+				//img(src="img/logo.svg", alt="GUSLI WEB", width="180", height="45")
 			p.footer__copyright © Copyright — GUSLI WEB

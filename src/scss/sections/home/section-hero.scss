@@ -1,4 +1,4 @@
-//* Hero Section
+// * Hero Section
 @use '../../core/variables' as *;
 @use '../../core/mixins' as *;
 
@@ -23,11 +23,12 @@
 
    // .hero__title
    &__title {
-      font-size: 4.8rem;
-      line-height: 1.15;
       margin-bottom: 2.4rem;
+
       font-family: $font-family-title;
+      font-size: 4.8rem;
       font-weight: 600;
+      line-height: 1.15;
 
       @include minmax-320-1920 {
          font-size: calc(25px + (48 - 25) * ((100vw - 320px) / (1920 - 320)));
@@ -51,9 +52,9 @@
 
    // .hero__description
    &__description {
+      margin-bottom: 3.2rem;
       font-size: 1.8rem;
       color: $color-text-light;
-      margin-bottom: 3.2rem;
    }
 
    // .hero__actions
@@ -81,14 +82,18 @@
    // .hero__badge
    &__badge {
       position: relative;
-      background-color: $color-bg-light;
-      padding: 1rem;
-      border-radius: $border-radius;
-      font-size: 13px;
+
       display: flex;
       align-items: center;
+
+      padding: 1rem;
+      border: 1px solid $border-color;
+      border-radius: $border-radius;
+
+      font-size: 13px;
+
+      background-color: $color-bg-light;
       box-shadow: $box-shadow;
-      border: 1px solid $color-border;
 
       @include screen-425 {
          width: 100%;
@@ -96,16 +101,20 @@
 
       &::before {
          content: '✓';
-         color: $color-white;
+
          display: flex;
          align-items: center;
          justify-content: center;
-         margin-right: 1rem;
-         font-weight: bold;
+
          width: 18px;
          min-width: 18px;
          height: 18px;
+         margin-right: 1rem;
          border-radius: 100vw;
+
+         font-weight: bold;
+         color: $color-white;
+
          background-color: $color-primary;
       }
    }

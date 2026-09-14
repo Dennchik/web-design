@@ -1,12 +1,16 @@
 @use '../core/variables' as *;
+
 .burger-button {
    --color: rgb(85 85 255);
    cursor: pointer;
+
    overflow: visible;
+
    width: 36px;
    height: 36px;
-   background: transparent;
    border: 1px solid $color-primary;
+
+   background: transparent;
 
    svg {
       display: block;
@@ -29,33 +33,38 @@
                var(--delay, 0s),
             stroke-dashoffset var(--duration, 0.85s) var(--easing, ease)
                var(--delay, 0s);
+
          &:nth-child(2) {
             --duration: 0.7s;
             --easing: ease-in;
             --offset: 100px;
             --array-2: 74px;
-            border: 1px solid red;
          }
+
          &:nth-child(3) {
             --offset: 133px;
             --array-2: 107px;
          }
       }
    }
+
    &._open {
       svg {
          path {
             --offset: 57px;
+
             &:nth-child(1),
             &:nth-child(3) {
                --delay: 0.15s;
                --easing: cubic-bezier(0.2, 0.4, 0.2, 1.1);
             }
+
             &:nth-child(2) {
                --duration: 0.4s;
                --offset: 2px;
                --array-1: 1px;
             }
+
             &:nth-child(3) {
                --offset: 58px;
             }

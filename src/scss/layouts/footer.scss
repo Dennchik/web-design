@@ -118,10 +118,16 @@
       }
    }
 
+   &__brand-logo {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+   }
+
    &__brand {
       display: flex;
       flex-direction: column;
-      gap: 0.8rem;
+      gap: 1rem;
 
       &-desc {
          max-width: 28rem;
@@ -174,6 +180,9 @@
 
    /* Нижняя секция */
    &__bottom {
+      position: relative;
+      z-index: 2;
+
       display: flex;
       flex-direction: column;
       gap: 2rem;
@@ -207,10 +216,10 @@
    gap: 1.6rem;
 
    padding: 3rem;
+   border: 1px solid rgb(255 255 255 / 10%);
    border-radius: $radius;
 
-   background-color: $blur;
-   box-shadow: $box-shadow;
+   background-color: $background-transparent;
 
    @include screen-490 {
       padding: 2rem;
@@ -241,19 +250,21 @@
    &__textarea {
       width: 100%;
       padding: 1.4rem 1.8rem;
-      border: 1px solid $color-bg-light;
+      border: 1px solid transparent;
       border-radius: $border-radius;
 
       font-family: inherit;
       font-size: 1.4rem;
       color: $color-text;
 
+      background-color: $background;
+
       transition:
          border-color $transition-linear-ease,
          box-shadow $transition-linear-ease;
 
       &::placeholder {
-         color: $color-bg-light;
+         color: $color-text-muted;
       }
 
       &:focus {

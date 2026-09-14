@@ -1,4 +1,4 @@
-//* Pricing
+// * Pricing
 @use '../../core/variables' as *;
 @use '../../core/mixins' as *;
 
@@ -21,10 +21,12 @@
 }
 
 .price-card {
-   border: 1px solid $color-border;
-   border-radius: $border-radius;
-   padding: 3rem;
    position: relative;
+
+   padding: 3rem;
+   border: 1px solid $border-color;
+   border-radius: $border-radius;
+
    box-shadow: $box-shadow;
 
    &--popular {
@@ -36,27 +38,30 @@
       position: absolute;
       top: -12px;
       left: 3.2rem;
-      background-color: $color-accent;
-      color: $color-white;
-      font-size: 11px;
-      font-weight: 700;
+
       padding: 4px 12px;
       border-radius: 100vh;
+
+      font-size: 11px;
+      font-weight: 700;
+      color: $color-white;
       text-transform: uppercase;
       letter-spacing: 2px;
+
+      background-color: $color-accent;
    }
 
    // .price-card__title
    &__title {
-      font-size: 2.2rem;
       margin-bottom: 4px;
+      font-size: 2.2rem;
    }
 
    // .price-card__subtitle
    &__subtitle {
+      margin-bottom: 2.4rem;
       font-size: 14px;
       color: $color-text-muted;
-      margin-bottom: 2.4rem;
    }
 
    // .price-card__features
@@ -64,10 +69,10 @@
       list-style: none;
 
       li {
-         font-size: 14px;
-         margin-bottom: 12px;
          display: flex;
          align-items: center;
+         margin-bottom: 12px;
+         font-size: 14px;
 
          &::before {
             content: '✓';

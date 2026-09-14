@@ -6,9 +6,9 @@ $gap: 1.6rem; // Отступы между карточками
 $transition-linear-ease: 0.3s ease-in-out;
 $background: rgb(255 255 255);
 $background-dark: rgb(23 30 38);
-$background-secondary: rgb(28 35 43/ 95%);
+$background-transparent: rgb(28 35 43/ 45%);
 $border-radius: 1.2rem;
-$color-border: rgb(23 30 38 / 40%);
+$border-color: rgb(255 255 255 / 10%);
 
 // * - [Font Variables] -
 $font-path: '../fonts';
@@ -30,6 +30,7 @@ $color-white: rgb(255 255 255);
 $blur: rgb(202 209 228 / 90%);
 $text-selection: rgb(116 151 248);
 
-root {
+:root {
    --linear-in-out: 0.4s ease-in-out;
+   --pulse: #9a8bff;
 }

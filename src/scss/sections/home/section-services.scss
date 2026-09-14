@@ -1,4 +1,4 @@
-//* Services
+// * Services
 @use '../../core/variables' as *;
 @use '../../core/mixins' as *;
 
@@ -21,14 +21,14 @@
 }
 
 .service-card {
-   border: 1px solid $color-border;
    padding: 2.8rem;
+   border: 1px solid $border-color;
    border-radius: $border-radius;
    box-shadow: $box-shadow;
 
    &__title {
-      font-size: 1.8rem;
       margin-bottom: 12px;
+      font-size: 1.8rem;
    }
 
    &__text {
